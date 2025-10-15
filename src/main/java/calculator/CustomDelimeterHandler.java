@@ -13,7 +13,7 @@ public class CustomDelimeterHandler {
 
         int endOfDelimeter = command.indexOf("\\n");
         if (endOfDelimeter == -1)
-            throw new IllegalArgumentException("");
+            throw new IllegalArgumentException("커스텀 구분자는 '\\n'으로 끝나야 합니다.");
         return command.substring(2, endOfDelimeter);
     }
 
@@ -21,7 +21,7 @@ public class CustomDelimeterHandler {
 
         int endOfDelimeter = command.indexOf("\\n");
         if (endOfDelimeter == -1)
-            throw new IllegalArgumentException("");
+            throw new IllegalArgumentException("커스텀 구분자는 '\\n'으로 끝나야 합니다.");
         return command.substring(endOfDelimeter + 2);
     }
 }
