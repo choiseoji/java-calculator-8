@@ -8,4 +8,12 @@ public class CustomDelimeterHandler {
             return true;
         return false;
     }
+
+    public String extractCustomDelimeter(String command) {
+
+        int endOfDelimeter = command.indexOf("\\n");
+        if (endOfDelimeter == -1)
+            throw new IllegalArgumentException("");
+        return command.substring(2, endOfDelimeter);
+    }
 }
