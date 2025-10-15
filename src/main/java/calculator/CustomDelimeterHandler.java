@@ -16,4 +16,12 @@ public class CustomDelimeterHandler {
             throw new IllegalArgumentException("");
         return command.substring(2, endOfDelimeter);
     }
+
+    public String removeDelimiterDeclaration(String command) {
+
+        int endOfDelimeter = command.indexOf("\\n");
+        if (endOfDelimeter == -1)
+            throw new IllegalArgumentException("");
+        return command.substring(endOfDelimeter + 2);
+    }
 }
