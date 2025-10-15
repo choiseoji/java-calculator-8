@@ -8,5 +8,8 @@ public class Application {
 
         Parser parser = new Parser();
         String[] tokens = parser.run(command);
+
+        Calculator calculator = new Calculator();
+        int result = calculator.calculate(tokens);
     }
 }
