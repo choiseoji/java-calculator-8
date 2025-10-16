@@ -11,5 +11,8 @@ public class Application {
 
         Calculator calculator = new Calculator();
         int result = calculator.calculate(tokens);
+
+        OutputHandler outputHandler = new OutputHandler();
+        outputHandler.run(result);
     }
 }
