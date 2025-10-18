@@ -28,5 +28,11 @@ public class StringAdder {
         this.calculator = new Calculator();
     }
 
+    public void run() {
 
+        String command = input.read();
+        String[] tokens = parser.run(command);
+        int result = calculator.calculate(tokens);
+        output.print(result);
+    }
 }
