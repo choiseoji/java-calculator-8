@@ -1,18 +1,18 @@
 package calculator;
 
+import calculator.application.StringAdder;
+import calculator.io.ConsoleInput;
+import calculator.io.ConsoleOutput;
+import calculator.io.Input;
+import calculator.io.Output;
+
 public class Application {
     public static void main(String[] args) {
 
-        InputHandler inputHandler = new InputHandler();
-        String command = inputHandler.run();
+        Input input = new ConsoleInput();
+        Output output = new ConsoleOutput();
 
-        Parser parser = new Parser();
-        String[] tokens = parser.run(command);
-
-        Calculator calculator = new Calculator();
-        int result = calculator.calculate(tokens);
-
-        OutputHandler outputHandler = new OutputHandler();
-        outputHandler.run(result);
+        StringAdder stringAdder = new StringAdder(input, output);
+        stringAdder.run();
     }
 }
