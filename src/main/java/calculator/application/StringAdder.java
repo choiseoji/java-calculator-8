@@ -1,7 +1,7 @@
 package calculator.application;
 
-import calculator.Calculator;
-import calculator.Parser;
+import calculator.domain.Calculator;
+import calculator.domain.Parser;
 import calculator.io.Input;
 import calculator.io.Output;
 
