@@ -1,6 +1,13 @@
 package calculator;
 
 public class Parser {
+
+    private final CustomDelimeterHandler customDelimeterHandler;
+
+    public Parser() {
+        this.customDelimeterHandler = new CustomDelimeterHandler();
+    }
+
     public String[] run(String command) {
 
         String delimeter = null;
