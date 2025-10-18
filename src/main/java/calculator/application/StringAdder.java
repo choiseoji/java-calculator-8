@@ -1,6 +1,6 @@
 package calculator.application;
 
-import calculator.domain.Calculator;
+import calculator.domain.PositiveCalculator;
 import calculator.domain.Parser;
 import calculator.io.Input;
 import calculator.io.Output;
@@ -10,7 +10,7 @@ public class StringAdder {
     private final Input input;
     private final Output output;
     private final Parser parser;
-    private final Calculator calculator;
+    private final PositiveCalculator positiveCalculator;
 
     /**
      * StringAdder 생성자
@@ -25,14 +25,14 @@ public class StringAdder {
         this.input = input;
         this.output = output;
         this.parser = new Parser();
-        this.calculator = new Calculator();
+        this.positiveCalculator = new PositiveCalculator();
     }
 
     public void run() {
 
         String command = input.read();
         String[] tokens = parser.run(command);
-        int result = calculator.calculate(tokens);
+        int result = positiveCalculator.calculate(tokens);
         output.print(result);
     }
 }
