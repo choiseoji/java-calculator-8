@@ -49,6 +49,14 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
+    void 구분자만_있으면_예외발생() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException(":"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
     void 구분자가_연속해서_등장하면_예외발생() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("1,:2,3"))
