@@ -31,6 +31,10 @@ public class StringAdder {
     public void run() {
 
         String command = input.read();
+        if (command == null || command.isBlank()) {
+            output.print(0);
+            return;
+        }
         String[] tokens = parser.run(command);
         int result = positiveCalculator.calculate(tokens);
         output.print(result);
