@@ -7,7 +7,7 @@ public class PositiveCalculator {
         int result = 0;
         for(String token : tokens) {
 
-            int number = Integer.parseInt(token);
+            int number = Integer.parseInt(token.trim());
             if (number <= 0) {
                 throw new IllegalArgumentException("음수 또는 0은 계산할 수 없습니다.");
             }
