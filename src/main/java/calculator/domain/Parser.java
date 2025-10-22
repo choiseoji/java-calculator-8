@@ -2,27 +2,27 @@ package calculator.domain;
 
 public class Parser {
 
-    private final CustomDelimeterHandler customDelimeterHandler;
+    private final CustomDelimiterHandler customDelimiterHandler;
 
     public Parser() {
-        this.customDelimeterHandler = new CustomDelimeterHandler();
+        this.customDelimiterHandler = new CustomDelimiterHandler();
     }
 
     public String[] run(String command) {
 
-        String customDelimeter = customDelimeterHandler.extractCustomDelimeter(command);
-        String content = customDelimeterHandler.removeDelimiterDeclaration(command);
-        customDelimeterHandler.validateContent(content, customDelimeter);
+        String customDelimiter = customDelimiterHandler.extractCustomDelimiter(command);
+        String content = customDelimiterHandler.removeDelimiterDeclaration(command);
+        customDelimiterHandler.validateContent(content, customDelimiter);
 
-        String regex = buildRegex(customDelimeter);
+        String regex = buildRegex(customDelimiter);
         return content.split(regex);
     }
 
-    private String buildRegex(String delimeter) {
+    private String buildRegex(String delimiter) {
 
-        String defaultDelimeter = ",|:";
-        if (delimeter != null)
-            defaultDelimeter += "|" + delimeter;
-        return defaultDelimeter;
+        String defaultDelimiter = ",|:";
+        if (delimiter != null)
+            defaultDelimiter += "|" + delimiter;
+        return defaultDelimiter;
     }
 }

@@ -7,55 +7,55 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
-public class CustomDelimeterHandler {
+public class CustomDelimiterHandler {
 
-    public String extractCustomDelimeter(String command) {
+    public String extractCustomDelimiter(String command) {
 
-        if (!hasCustomDelimeter(command))
+        if (!hasCustomDelimiter(command))
             return null;
 
-        int endOfDelimeter = command.indexOf("\\n");
-        if (endOfDelimeter == -1)
+        int endOfDelimiter = command.indexOf("\\n");
+        if (endOfDelimiter == -1)
             throw new IllegalArgumentException("커스텀 구분자는 '\\n'으로 끝나야 합니다.");
 
-        String delimeter = command.substring(2, endOfDelimeter);
-        validateDelimeter(delimeter);
+        String delimiter = command.substring(2, endOfDelimiter);
+        validateDelimiter(delimiter);
 
-        return delimeter;
+        return delimiter;
     }
 
     public String removeDelimiterDeclaration(String command) {
 
-        if (!hasCustomDelimeter(command))
+        if (!hasCustomDelimiter(command))
             return command;
 
-        int endOfDelimeter = command.indexOf("\\n");
-        if (endOfDelimeter == -1)
+        int endOfDelimiter = command.indexOf("\\n");
+        if (endOfDelimiter == -1)
             throw new IllegalArgumentException("커스텀 구분자는 '\\n'으로 끝나야 합니다.");
 
-        return command.substring(endOfDelimeter + 2);
+        return command.substring(endOfDelimiter + 2);
     }
 
-    private boolean hasCustomDelimeter(String command) {
+    private boolean hasCustomDelimiter(String command) {
 
         if (command.startsWith("//"))
             return true;
         return false;
     }
 
-    private void validateDelimeter(String delimeter) {
+    private void validateDelimiter(String delimiter) {
 
-        if (delimeter.chars().allMatch(Character::isDigit)) {
+        if (delimiter.chars().allMatch(Character::isDigit)) {
             throw new IllegalArgumentException("커스텀 구분자에 숫자를 넣을 수 없습니다.");
         }
     }
 
-    public void validateContent(String content, String delimeter) {
+    public void validateContent(String content, String delimiter) {
 
         // 구분자 리스트
         List<String> delimiters = new ArrayList<>(Arrays.asList(",", ":"));
-        if (delimeter != null)
-            delimiters.add(delimeter);
+        if (delimiter != null)
+            delimiters.add(delimiter);
 
         // 정규 표현식 생성
         String regex = delimiters.stream()
