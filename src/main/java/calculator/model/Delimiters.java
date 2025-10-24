@@ -6,11 +6,8 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public class Delimiters {
-
-    private static final String COMMA = ",";
-    private static final String COLON = ":";
     private List<String> delimiters;
-    private static final List<String> DEFAULT_DELIMITERS = List.of(COMMA, COLON);
+    private static final List<String> DEFAULT_DELIMITERS = List.of(",", ":");
 
     public Delimiters() {
         this.delimiters = List.copyOf(DEFAULT_DELIMITERS);
